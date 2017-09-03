@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "test",
+  "description": "block request to wikipedia from google",
+  "version": "1.0.0",
+
+  "background":{
+    "scripts": ["bk.js"]
+  },
+  "content_scripts":[
+    { "matches": ["http://*/*","https://*/*"],
+      "js": ["frnt.js"],
+      "all_frames": false
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "content_security_policy": "default-src 'unsafe-eval';",
+  "permissions": [
+    "storage",
+//    "webRequest",
+    "<all_urls>",
+//    "webRequestBlocking",
+//    "tabs",
+    "nativeMessaging"
+  ]
+}

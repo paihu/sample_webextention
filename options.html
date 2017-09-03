@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>Options</title>
+<script src="vue.js"></script>
+<script src="options.js"></script>
+<style>
+dt{
+border-top: dashed black;
+padding-top: 3px;
+}
+dd{
+}
+</style>
+</head>
+<body>
+<p>test</p>
+<div id="test">
+</div>
+<div id="app">
+<dl>
+<dt>page</dt><dd>open this browser link </dd>
+</dl>
+<dl v-for="url in urls">
+<dt><input class="src_url" type="text" v-model="url.src"><button v-on:click="delete_src(url)">delete</button></dt>
+<dd v-for="n in url.dsts.length"><input class="dst_url" v-model="url.dsts[n]"><button v-on:click="delete_dest(url,n)">delete</button><br></dd><dd><button v-on:click="add_dest(url)">add dest</button></dd>
+</dl>
+<button v-on:click="add_src">add page</button>
+<button v-on:click="save">save options</button>
+<p id="comment"></p>
+</div>
+</body>
+</html>
